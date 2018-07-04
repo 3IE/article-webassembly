@@ -19,4 +19,4 @@ Run `ng generate component component-name` to generate a new component.
 
 ### Note
 
-I added the raws .js and .wasm files in evaluator/ in case of you were having trouble to compile emsdk by yourself ;-).
+I added the raws .js and .wasm files in src/app/wasm in case of you were having trouble to compile emsdk by yourself ;-).
