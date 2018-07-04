@@ -11,22 +11,25 @@
       <th>Operation</th>
       <th>
         TypeScript execution time
-        <button type="button" class="btn btn-primary" (click)="callFiboTS()">Start</button>
+        <button type="button" class="btn btn-primary" (click)="callFiboTS()">Executer</button>
       </th>
       <th>
         WebAssembly execution time
-        <button type="button" class="btn btn-primary" (click)="callFiboWA()">Start</button>
+        <button type="button" class="btn btn-primary" (click)="callFiboWA()">Executer</button>
       </th>
     </tr>
     <tr *ngFor="let exec of comparatorExecFibo; let i = index">
-      <td>Fibonacci({{i}})</td>
+      <td>Fibonacci(<b>{{i}}</b>)</td>
       <td [hidden]="!fiboTSComputed">{{exec.timeTS}}ms</td>
       <td [hidden]="!fiboWAComputed">{{exec.timeWA}}ms</td>
     </tr>
   </table>
 
+  <hr>
+
   <h2 class="mt-5">Jouons avec la mémoire</h2>
-  <h6>Ici on alloue petit à petit un tableau dans lequel on insert des caractères puis on le retourne</h6>
+  <h6>Ici on alloue petit à petit un tableau dans lequel on insert des caractères puis on le retourne<br><small>Taille du tableau : 10 000 000 d'éléments</small></h6>
+  
   <button type="button" class="btn btn-primary" (click)="callPWM()">{{displayHidePWM}}</button>
   
   <table class="table table-striped mt-5" [hidden]="!PWMComputed">
@@ -42,7 +45,7 @@
       </th>
     </tr>
     <tr *ngFor="let exec of comparatorExecPWM; let i = index">
-      <td [hidden]="exec.timeTS === undefined && exec.timeWA === undefined">{{i + 1}}</td>
+      <td [hidden]="exec.timeTS === undefined && exec.timeWA === undefined"><b>{{i + 1}}</b></td>
       <td [hidden]="!PWMTSComputed">{{exec.timeTS}}ms</td>
       <td [hidden]="!PWMWAComputed">{{exec.timeWA}}ms</td>
     </tr>
