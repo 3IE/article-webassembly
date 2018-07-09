@@ -24,13 +24,13 @@ Run `ng generate component component-name` to generate a new component.
 
 To compile C to WASM use the following instructions (you must install emsdk / emcc):
 
-> ./emdsk update
- ./emdsk update-tags
- ./emdsk install latest
- ./emdsk activate latest
+> ./emdsk update<br>
+ ./emdsk update-tags<br>
+ ./emdsk install latest<br>
+ ./emdsk activate latest<br>
  source ./emdsk_env.sh
 
-> cd app/src/wasm
+> cd app/src/wasm<br>
  emcc ./evaluator.c -Os -s WASM=1 -s MODULARIZE=1 -o ./evaluator.js
 
 ### Note
