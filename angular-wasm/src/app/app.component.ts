@@ -11,7 +11,6 @@ import { TimeExecutionComparator } from './models/time-execution-comparator-mode
 export class AppComponent implements OnInit {
   public comparatorExecFibo: TimeExecutionComparator[];
   public comparatorExecPWM: TimeExecutionComparator[];
-  public ackermannExecTimeTS: number;
   public fiboComputed: boolean;
   public fiboTSComputed: boolean;
   public fiboWAComputed: boolean;
