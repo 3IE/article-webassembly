@@ -29,21 +29,3 @@ char* EMSCRIPTEN_KEEPALIVE play_with_memory()
 	}
 	return str;
 }
-
-/*int EMSCRIPTEN_KEEPALIVE ackermann(int m, int n)
-{
-    std::stack<int> s;
-    s.push(m);
-    while (!s.empty()) {
-	m = s.top();
-	s.pop();
-	if (m == 0 || n == 0)
-		n += m + 1;
-        else {
-		s.push(m - 1);
-	        s.push(m);
-                n--;
-        }
-    }
-    return n;
-}*/

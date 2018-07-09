@@ -21,16 +21,14 @@ export class WasmService {
     this.instantiateWasm('wasm/evaluator.wasm');
   }
 
-  private async instantiateWasm(url: string) {
-    // fetch the wasm file
-    const wasmFile = await fetch(url);
+  private async instantiateWasm(path: string) {
+    // charge le fichier .wasm
+    const wasmFile = await fetch(path);
 
-    // convert it into a binary array
+    // le convertit en un buffer binaire
     const buffer = await wasmFile.arrayBuffer();
     const binary = new Uint8Array(buffer);
 
-    // create module arguments
-    // including the wasm-file
     const moduleArgs = {
       wasmBinary: binary,
       onRuntimeInitialized: () => {
@@ -38,7 +36,7 @@ export class WasmService {
       }
     };
 
-    // instantiate the module
+    // instantie le module
     this.module = Module(moduleArgs);
   }
 
@@ -73,20 +71,4 @@ export class WasmService {
       take(1)
     );
   }
-
-  /*public ackermann(input1: number, input2: number): Observable<number> {
-    return this.wasmReady.pipe(filter(value => value === true)).pipe(
-      mergeMap(() => {
-        return fromPromise(
-          new Promise<number>((resolve, reject) => {
-            setTimeout(() => {
-              const result = this.module._ackermann(input1, input2);
-              resolve(result);
-            });
-          })
-        );
-      }),
-      take(1)
-    );
-  }*/
 }

@@ -36,6 +36,15 @@ export class AppComponent implements OnInit {
     this.displayHidePWM = 'Display';
     this.displayHideFibo = 'Display';
     this.average = {timeTS: 0, timeWA: 0};
+    this.comparatorExecFibo = [];
+    for (let i = 0; i < 62; i++) {
+      this.comparatorExecFibo.push(
+        {
+          timeTS: undefined,
+          timeWA: undefined
+        }
+      );
+    }
   }
 
   public ngOnInit() {
@@ -49,15 +58,7 @@ export class AppComponent implements OnInit {
       this.displayHideFibo = 'Hide';
     }
     this.fiboComputed = !this.fiboComputed;
-    this.comparatorExecFibo = [];
-    for (let i = 0; i < 62; i++) {
-      this.comparatorExecFibo.push(
-        {
-          timeTS: undefined,
-          timeWA: undefined
-        }
-      );
-    }
+    console.log(this.comparatorExecFibo);
   }
 
   public callFiboWA(): void {
@@ -128,7 +129,6 @@ export class AppComponent implements OnInit {
         this.average.timeWA += iterator.timeWA;
       }
     }
-    console.log(nbTS);
     this.average.timeTS /= nbTS;
     this.average.timeWA /= nbWA;
   }
@@ -178,17 +178,5 @@ export class AppComponent implements OnInit {
       second = tmp;
     }
     return first;
-  }
-
-  private ackermannTS(m: number, n: number): number {
-    if (m === 0) {
-      return n + 1;
-    }
-    if (m > 0 && n === 0) {
-      return this.ackermannTS(m - 1, 1);
-    }
-    if (m > 0 && n > 0) {
-      return this.ackermannTS(m - 1, this.ackermannTS(m, n - 1));
-    }
   }
 }
