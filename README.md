@@ -31,7 +31,7 @@ To compile C to WASM use the following instructions (you must install emsdk / em
  source ./emdsk_env.sh
 
 > cd app/src/wasm
-> emcc ./evaluator.c -Os -s WASM=1 -s MODULARIZE=1 -o ./evaluator.js
+ emcc ./evaluator.c -Os -s WASM=1 -s MODULARIZE=1 -o ./evaluator.js
 
 ### Note
 
