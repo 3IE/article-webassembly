@@ -1,6 +1,6 @@
 # Project
 
-Angular website integrating webassembly computations built and used as content material for this article : blog.3ie.fr/webassembly-angular/
+Angular website integrating webassembly computations built and used as content material for this article : http://blog.3ie.fr/webassembly-angular/
 
 # AngularWasm
 
