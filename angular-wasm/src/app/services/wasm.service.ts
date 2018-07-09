@@ -16,6 +16,7 @@ export class WasmService {
   module: any;
 
   wasmReady = new BehaviorSubject<boolean>(false);
+  // On utilise un BehaviorSubject pour rendre l'appel à WebAssembly asynchrone
 
   constructor() {
     this.instantiateWasm('wasm/evaluator.wasm');
@@ -40,8 +41,9 @@ export class WasmService {
     this.module = Module(moduleArgs);
   }
 
+  // Pour plus d'infos : https://rxjs-dev.firebaseapp.com/api
   public fibonacci(input: number): Observable<number> {
-    return this.wasmReady.pipe(filter(value => value === true)).pipe(
+    return this.wasmReady.pipe(filter(val => val === true)).pipe(
       mergeMap(() => {
         return fromPromise(
           new Promise<number>((resolve, reject) => {
